@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCRO - Combate a Dependências</title>
+    <style>
+        :root { --bg: #0d141d; --card: #1a2a3a; --gold: #d4a373; --accent: #f1c40f; --text: #f0ead6; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; line-height: 1.6; }
+        .header { color: var(--accent); font-weight: bold; font-size: 1.4em; margin-bottom: 20px; border-bottom: 1px solid var(--gold); width: 100%; text-align: center; padding-bottom: 10px; }
+        .section-title { color: var(--gold); font-weight: bold; margin-top: 25px; width: 100%; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+        .instrucao-box { background: var(--card); padding: 18px; border-radius: 12px; border-left: 4px solid var(--gold); margin-bottom: 15px; width: 100%; box-sizing: border-box; font-size: 0.95em; }
+        .btn-float-audio { position: fixed; bottom: 30px; right: 20px; background: var(--gold); color: #0d141d; border: none; width: 65px; height: 65px; border-radius: 50%; font-size: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        .btn-voltar { margin: 30px 0; color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8em; }
+        .aviso { font-size: 0.8em; color: #999; text-align: center; margin-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div class="header">PROTOCOLO SINCRO: VÍCIOS E COMPULSÕES</div>
+
+    <div id="conteudo-terapeutico">
+        <div class="section-title">Reestruturação Cognitiva</div>
+        <div class="instrucao-box">
+            A cura inicia com o reconhecimento da dependência e a identificação cirúrgica dos gatilhos. Mapeie agora as pessoas, lugares e emoções que disparam o impulso. Utilize a PsicoVisualização para projetar os benefícios reais da liberdade em contraste com o peso da continuidade no erro. Estabeleça cartões de enfrentamento com frases de poder para blindar sua mente no momento da tentação.
+        </div>
+
+        <div class="section-title">Manobras Comportamentais de Sincronia</div>
+        <div class="instrucao-box">
+            Aplique a técnica de atraso de resposta. Quando a fissura surgir, utilize a manobra de surfar a urgência. Respire fundo e aguarde quinze minutos sem reagir. Observe a onda do desejo subir e descer sem sucumbir a ela. Paralelamente, execute a limpeza do seu espaço geográfico, removendo lembretes visuais do vício. Substitua rituais antigos por novas âncoras físicas que liberem dopamina saudável.
+        </div>
+
+        <div class="section-title">Gerenciamento de Recaídas</div>
+        <div class="instrucao-box">
+            A recaída não é um fracasso total, mas um dado clínico para ajuste de estratégia. Se houver queda, identifique qual falha de monitoramento ocorreu e reforce o esforço diário. O Método SINCRO atua como um auxílio terapêutico de alta precisão para manter sua atenção plena e evitar reações automáticas aos impulsos.
+        </div>
+    </div>
+
+    <p class="aviso">Em casos severos de dependência química, a assistência médica para manejo da abstinência é indispensável.</p>
+
+    <a href="index.html" class="btn-voltar">VOLTAR AO PAINEL PRINCIPAL</a>
+
+    <button class="btn-float-audio" onclick="ouvirSincro()" aria-label="Ouvir áudio">🔊</button>
+
+    <script>
+        function ouvirSincro() {
+            // Garante que o sistema de fala limpe filas anteriores
+            window.speechSynthesis.cancel();
+            
+            // Captura o texto com a pontuação correta
+            const texto = document.getElementById('conteudo-terapeutico').innerText;
+            const msg = new SpeechSynthesisUtterance();
+            
+            msg.text = texto;
+            msg.lang = 'pt-BR';
+            msg.rate = 0.9;
+            msg.pitch = 1.0;
+
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+
+</body>
+</html>

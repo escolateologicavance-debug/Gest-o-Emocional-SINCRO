@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCRO - Protocolo Ansiedade</title>
+    <style>
+        :root {
+            --bg: #0d141d;
+            --card: #1a2a3a;
+            --gold: #d4a373;
+            --accent: #d35400; /* Laranja para Ansiedade */
+            --text: #f0ead6;
+        }
+        body { 
+            margin: 0; font-family: 'Segoe UI', sans-serif; 
+            background: var(--bg); color: var(--text); 
+            display: flex; flex-direction: column; align-items: center; 
+            padding: 20px; text-align: left; line-height: 1.5;
+        }
+        .header { color: var(--accent); font-weight: bold; font-size: 1.4em; margin-bottom: 20px; text-align: center; width: 100%; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
+        
+        .section-title { color: var(--gold); font-weight: bold; margin-top: 20px; }
+        
+        .instrucao-box { 
+            background: var(--card); padding: 18px; border-radius: 12px; 
+            border-left: 4px solid var(--gold); margin-bottom: 15px; width: 100%; box-sizing: border-box;
+        }
+
+        .btn-float-audio {
+            position: fixed; bottom: 30px; right: 20px;
+            background: var(--gold); color: #0d141d; border: none;
+            width: 65px; height: 65px; border-radius: 50%;
+            font-size: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
+        }
+
+        .btn-voltar { margin: 30px 0; color: var(--gold); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header">PROTOCOLO SINCRO: ANSIEDADE</div>
+
+    <div id="conteudo-terapeutico">
+        <div class="section-title">Técnica de Aterramento (5-4-3-2-1)</div>
+        <div class="instrucao-box">
+            Para interromper o fluxo de pensamentos acelerados, foque no seu espaço geográfico imediato e identifique:
+            Cinco coisas que você pode ver.
+            Quatro coisas que você pode tocar.
+            Três coisas que você pode ouvir.
+            Duas coisas que você pode cheirar.
+            Uma coisa que você pode saborear.
+            Esta manobra traz a sua consciência de volta para a realidade presente.
+        </div>
+
+        <div class="section-title"> Sincronia de Espaço</div>
+        <div class="instrucao-box">
+            A ansiedade é o caos interno refletido no externo. Escolha um pequeno ponto de desordem ao seu redor agora — uma gaveta, uma mesa ou uma estante. Organize este ponto imediatamente. Ao reestruturar o seu ambiente físico, você envia um comando de ordem para a sua psique.
+        </div>
+
+        <div class="section-title"> Respiração Diafragmática</div>
+        <div class="instrucao-box">
+            Coloque a mão sobre o abdômen. Inspire profundamente expandindo a barriga, não o peito. Expire soprando o ar lentamente. O relaxamento do diafragma desativa o sistema de alerta do corpo.
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-voltar">← VOLTAR AO PAINEL</a>
+
+    <button class="btn-float-audio" onclick="ouvirSincro()">🔊</button>
+
+    <script>
+        function ouvirSincro() {
+            window.speechSynthesis.cancel();
+            const texto = document.getElementById('conteudo-terapeutico').innerText;
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = texto;
+            msg.lang = 'pt-BR';
+            msg.rate = 0.9; 
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+
+</body>
+</html>

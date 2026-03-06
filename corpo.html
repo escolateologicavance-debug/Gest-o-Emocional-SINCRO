@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCRO - Dores Psicossomáticas</title>
+    <style>
+        :root { --bg: #0d141d; --card: #1a2a3a; --gold: #d4a373; --accent: #2980b9; --text: #f0ead6; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; line-height: 1.6; }
+        .header { color: var(--accent); font-weight: bold; font-size: 1.4em; margin-bottom: 20px; border-bottom: 1px solid var(--gold); width: 100%; text-align: center; padding-bottom: 10px; }
+        .section-title { color: var(--gold); font-weight: bold; margin-top: 25px; width: 100%; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+        .instrucao-box { background: var(--card); padding: 18px; border-radius: 12px; border-left: 4px solid var(--gold); margin-bottom: 15px; width: 100%; box-sizing: border-box; font-size: 0.95em; }
+        .btn-float-audio { position: fixed; bottom: 30px; right: 20px; background: var(--gold); color: #0d141d; border: none; width: 65px; height: 65px; border-radius: 50%; font-size: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        .btn-voltar { margin: 30px 0; color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <div class="header">PROTOCOLO SINCRO: PSICOSSOMÁTICA</div>
+
+    <div id="conteudo-terapeutico">
+        <div class="section-title">Mapeamento de Tensão Crítica</div>
+        <div class="instrucao-box">
+            A dor física sem causa clínica aparente é o somatismo da psique desordenada. Escaneie seu corpo agora. Identifique onde está o peso: nos ombros, na mandíbula ou na região lombar. Solte esses pontos conscientemente. O ajuste postural imediato é o primeiro passo para cessar o ciclo de dor enviado pelo cérebro ao tecido muscular.
+        </div>
+
+        <div class="section-title">Sincronia Muscular e Visual</div>
+        <div class="instrucao-box">
+            Respire profundamente e, ao expirar, visualize a tensão se dissolvendo e saindo do seu corpo para o ambiente externo. O Método SINCRO estabelece que o corpo obedece ao comando da visão e da organização do espaço. Foque em um ponto fixo à sua frente e sinta a leveza se espalhar enquanto você reorganiza sua postura presente.
+        </div>
+
+        <div class="section-title">Desinstalação do Estresse Físico</div>
+        <div class="instrucao-box">
+            Muitas vezes a dor é um reflexo de rituais de estresse no ambiente de trabalho ou em casa. Mude a posição de um objeto que você usa constantemente. Essa pequena alteração geográfica quebra o padrão de dor crônica e sinaliza ao sistema nervoso uma nova realidade de equilíbrio e ordem.
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-voltar">VOLTAR AO PAINEL PRINCIPAL</a>
+
+    <button class="btn-float-audio" onclick="ouvirSincro()">🔊</button>
+
+    <script>
+        function ouvirSincro() {
+            window.speechSynthesis.cancel();
+            const texto = document.getElementById('conteudo-terapeutico').innerText;
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = texto;
+            msg.lang = 'pt-BR';
+            msg.rate = 0.9;
+            msg.pitch = 1.0;
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+
+</body>
+</html>

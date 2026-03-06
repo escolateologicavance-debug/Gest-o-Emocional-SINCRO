@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINCRO - Protocolo Insônia</title>
+    <style>
+        :root {
+            --bg: #0d141d;
+            --card: #1a2a3a;
+            --gold: #d4a373;
+            --accent: #c0392b;
+            --text: #f0ead6;
+        }
+        body { 
+            margin: 0; font-family: 'Segoe UI', sans-serif; 
+            background: var(--bg); color: var(--text); 
+            display: flex; flex-direction: column; align-items: center; 
+            padding: 20px; text-align: left; line-height: 1.5;
+        }
+        .header { color: var(--accent); font-weight: bold; font-size: 1.4em; margin-bottom: 20px; text-align: center; width: 100%; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
+        
+        .section-title { color: var(--gold); font-weight: bold; margin-top: 20px; display: flex; align-items: center; gap: 8px; }
+        
+        .instrucao-box { 
+            background: var(--card); padding: 18px; border-radius: 12px; 
+            border-left: 4px solid var(--gold); margin-bottom: 15px; width: 100%; box-sizing: border-box;
+        }
+
+        .btn-float-audio {
+            position: fixed; bottom: 30px; right: 20px;
+            background: var(--gold); color: #0d141d; border: none;
+            width: 65px; height: 65px; border-radius: 50%;
+            font-size: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center; z-index: 1000;
+        }
+
+        .nota { font-size: 0.8em; color: var(--gold); opacity: 0.7; margin-top: 20px; text-align: center; }
+        .btn-voltar { margin: 30px 0; color: var(--gold); text-decoration: none; font-weight: bold; }
+        
+        ul { padding-left: 20px; margin: 5px 0; }
+        li { margin-bottom: 8px; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+
+    <div class="header">PROTOCOLO SINCRO: INSÔNIA</div>
+
+    <div id="conteudo-terapeutico">
+        <div class="section-title">Relaxamento Imediato</div>
+        <div class="instrucao-box">
+            <b>Técnica 4-7-8:</b> Inspire pelo nariz por 4 segundos, prenda por 7 e expire lentamente pela boca por 8 segundos. Repita 4 ciclos.
+            <br><br>
+            <b>Método Militar:</b> Relaxe conscientemente da testa aos pés. Imagine flutuar em um lago calmo e repita mentalmente "não pense" por 10 segundos.
+        </div>
+
+        <div class="section-title"> Desinstalação do Caos no Quarto</div>
+        <div class="instrucao-box">
+            <ul>
+                <li><b>Regra dos 20 min:</b> Se não dormir, saia da cama. Faça algo calmo em outro cômodo e volte apenas com sono.</li>
+                <li><b>Descarregue a Mente:</b> Anote pendências em um papel para liberar o cérebro do alerta.</li>
+                <li><b>Luz Azul:</b> Bloqueie telas. A luz artificial impede a produção de melatonina.</li>
+            </ul>
+        </div>
+
+        <div class="section-title"> Apoio Ambiental e Natural</div>
+        <div class="instrucao-box">
+            Aromaterapia com lavanda e chás de camomila ou valeriana auxiliam a indução. Mantenha o quarto escuro e em temperatura fresca.
+        </div>
+
+        <div class="section-title"> O que Evitar</div>
+        <div class="instrucao-box">
+            Corte cafeína e álcool horas antes. Evite refeições pesadas até 2 horas antes de deitar.
+        </div>
+    </div>
+
+    <p class="nota">Nota: Se a insônia for crônica, procure um especialista.</p>
+
+    <a href="index.html" class="btn-voltar">← VOLTAR AO PAINEL</a>
+
+    <button class="btn-float-audio" onclick="ouvirSincro()" title="Ouvir Guia">🔊</button>
+
+    <script>
+        function ouvirSincro() {
+            window.speechSynthesis.cancel();
+            const texto = document.getElementById('conteudo-terapeutico').innerText;
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = texto;
+            msg.lang = 'pt-BR';
+            msg.rate = 0.85; // Voz calma para indução ao sono
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+
+</body>
+</html>
